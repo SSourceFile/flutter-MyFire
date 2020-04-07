@@ -5,7 +5,7 @@ class Setting extends StatelessWidget{
   Widget build(BuildContext context) {
     // TODO: implement build
     return new Scaffold(
-      appBar: new Toolbar().toolbar,
+      appBar: Toolbar.toolbar("设置"),
       body: Container(
         child: new Text("设置页面"),
       ),

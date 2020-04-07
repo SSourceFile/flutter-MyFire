@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Toolbar{
-
-  Widget toolbar(String title, {Boolean isCenterTitle = true}){
+  static Widget toolbar(String title, {bool isCenterTitle = true}){
     return new AppBar(
       title: Text(title, style: new TextStyle(color: Colors.white),),
       centerTitle: true,
