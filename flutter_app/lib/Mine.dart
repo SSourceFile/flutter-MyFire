@@ -1,5 +1,6 @@
-import 'package:english_words/english_words.dart';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutterapp/ListImage.dart';
 import 'package:flutterapp/record/Record.dart';
 import 'package:flutterapp/setting/Setting.dart';
@@ -75,31 +76,39 @@ class MineItemWidget extends StatelessWidget{
 class Mine extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    return Scaffold(
-      appBar: AppBar(
-        title: Text("我的", style: new TextStyle(color: Colors.white),),
-        centerTitle: true,
-        backgroundColor: Colors.deepOrange,
-        elevation: 0,
-      ),
-      body: ListView(
-        children: <Widget>[
-          _MineHeader,
-          _listViewLine2,
-          _listViewLine,
-          MineItemWidget("images/icservice.png", "联系客服", onTop: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context) => ListImage()));
-          }),
-          MineItemWidget("images/ic_mine_trade.png", "发布记录", onTop: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context) => Record()));
-          }),
-          MineItemWidget("images/ic_mine_setting.png", "设置", onTop: (){
-            Navigator.push(context, MaterialPageRoute(builder: (context) => Setting()));
-          }),
-        ],
+
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: SystemUiOverlayStyle.light,
+      child: Material(
+        child: Scaffold(
+          appBar: AppBar(
+            title: Text("我的", style: new TextStyle(color: Colors.white),),
+            centerTitle: true,
+            backgroundColor: Colors.deepOrange,
+            elevation: 0,
+            brightness: Brightness.light,
+          ),
+          body: ListView(
+            children: <Widget>[
+              _MineHeader,
+              _listViewLine2,
+              _listViewLine,
+              MineItemWidget("images/icservice.png", "联系客服", onTop: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => ListImage()));
+              }),
+              MineItemWidget("images/ic_mine_trade.png", "发布记录", onTop: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Record()));
+              }),
+              MineItemWidget("images/ic_mine_setting.png", "设置", onTop: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Setting()));
+              }),
+            ],
+          ),
+        ),
       ),
     );
+    //
+
   }
 
   Widget get _listViewLine{

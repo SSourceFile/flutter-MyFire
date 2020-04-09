@@ -1,9 +1,12 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutterapp/Mine.dart';
 import 'package:flutterapp/CategoryPage.dart';
 import 'package:flutterapp/HomePage.dart';
 
-void main() => runApp(MyApp());
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
