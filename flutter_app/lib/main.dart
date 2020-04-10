@@ -7,7 +7,7 @@ import 'package:flutterapp/CategoryPage.dart';
 import 'package:flutterapp/HomePage.dart';
 
 
-class MyApp extends StatelessWidget {
+class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
