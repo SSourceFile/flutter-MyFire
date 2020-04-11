@@ -40,15 +40,20 @@ class SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
-    _loadSplashData();
+//    _loadSplashData();
     _initAsync();
   }
 
   void _loadSplashData() async {
+    _splashModel = SpUtil.getObj(
+        Constant.key_splash_model, (v) => SplashModel.fromJson(v));
+    if (_splashModel != null) {
+      setState(() {});
+    }
     HttpUtils httpUtil =  HttpUtils();
     httpUtil.getSplash().then((model) async {
       await SpUtil.getInstance();
-//      _splashModel = SpHelper.getSplashModel();
+
       if (!ObjectUtil.isEmpty(model.imgUrl)) {
         if (_splashModel == null || (_splashModel.imgUrl != model.imgUrl)) {
           SpUtil.putString(Constant.key_splash_model, json.encode(model));
@@ -162,11 +167,12 @@ class SplashPageState extends State<SplashPage> {
   }
 
   Widget _buildAdWidget() {
-    if (_splashModel == null) {
-      return new Container(
-        height: 0.0,
-      );
-    }
+//    if (_splashModel == null) {
+//      return new Container(
+//        height: 0.0,
+//        color: Colors.blueAccent,
+//      );
+//    }
     return new Offstage(
       offstage: !(_status == 1),
       child: new InkWell(
@@ -195,11 +201,13 @@ class SplashPageState extends State<SplashPage> {
   @override
   Widget build(BuildContext context) {
     return new Material(
+      color: Colors.transparent,
       child: new Stack(
         children: <Widget>[
           new Offstage(
             offstage: !(_status == 0),
             child: _buildSplashBg(),
+
           ),
           new Offstage(
             offstage: !(_status == 2),
@@ -215,18 +223,16 @@ class SplashPageState extends State<SplashPage> {
                 ),
                 children: _bannerList),
           ),
-          // _buildAdWidget(),
+           _buildAdWidget(),
           new Offstage(
             offstage: !(_status == 1),
-            child: _splashModel == null
-                ? new Container()
-                : new InkWell(
-              onTap: () {
-                if (ObjectUtil.isEmpty(_splashModel.url)) return;
-                _goMain();
-//                NavigatorUtil.pushWeb(context,
-//                    title: _splashModel.title, url: _splashModel.url);
-              },
+//            child:  new InkWell(
+//              onTap: () {
+//                if (ObjectUtil.isEmpty(_splashModel.url)) return;
+//                _goMain();
+////                NavigatorUtil.pushWeb(context,
+////                    title: _splashModel.title, url: _splashModel.url);
+//              },
               child: new Container(
                 alignment: Alignment.center,
                 child: new Image.asset(
@@ -238,7 +244,7 @@ class SplashPageState extends State<SplashPage> {
 //                  placeholder: _buildSplashBg(),
 //                  errorWidget: _buildSplashBg(),
                 ),
-              ),
+//              ),
             ),
           ),
           new Offstage(

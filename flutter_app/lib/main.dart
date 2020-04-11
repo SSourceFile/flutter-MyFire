@@ -1,65 +1,69 @@
-import 'dart:io';
-
+import 'package:base_library/base_library.dart';
+import 'package:dio/dio.dart';
+import 'package:flukit/example/example.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutterapp/Splash.dart';
+import 'package:flutterapp/blocs/bloc_index.dart';
+import 'package:flutterapp/common/Global.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutterapp/Mine.dart';
-import 'package:flutterapp/CategoryPage.dart';
-import 'package:flutterapp/HomePage.dart';
+import 'package:flutterapp/common/component_index.dart';
+import 'package:flutterapp/MainPage.dart';
 
+void main(){
+  Global.init((){
+    runApp(BlocProvider<ApplicationBloc>(
+      bloc: ApplicationBloc(),
+      child: BlocProvider(child: MyApp(), bloc: MainBloc(),),
+    ));
+  });
+}
 
-class MainPage extends StatelessWidget {
+class MyApp extends StatefulWidget{
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        primarySwatch: Colors.orange,
-      ),
-      home: Tab(),
-    );
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return MyAppState();
   }
-}
-class Tab extends StatefulWidget{
-  _TabState createState() => _TabState();
-}
-class _TabState extends State{
-  int _currentIndex = 0;
-  PageController _pageController;
 
-  void initState(){
+}
+
+class MyAppState extends State {
+  Color _themeColor = Colours.app_main;
+
+  @override
+  void initState() {
     super.initState();
-    this._pageController = new PageController(initialPage: this._currentIndex);
+    init();
   }
-  List<Widget> _pageList = [HomePage(), CategoryPage(), Mine()];
   @override
   Widget build(BuildContext context) {
-
-    return Container(
-      child: Scaffold(
-
-        body: PageView(
-          controller: this._pageController,
-          children: this._pageList,
-          physics: new NeverScrollableScrollPhysics(),
-        ),
-        bottomNavigationBar: BottomNavigationBar(
-            items: [
-              BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('首页')),
-              BottomNavigationBarItem(icon: Icon(Icons.category), title: Text('分类')),
-              BottomNavigationBarItem(icon: Icon(Icons.people), title: Text('我的'))
-            ],
-            currentIndex: this._currentIndex,
-            onTap: (index){
-              this.setState((){
-                this._currentIndex = index;
-                this._pageController.jumpToPage(this._currentIndex);
-              });
-            },
-          type: BottomNavigationBarType.fixed,
-          fixedColor: Colors.red,
-        ),
+    return new MaterialApp(
+      routes: {
+        BaseConstant.routeMain: (ctx) => MainPage(),
+      },
+      home: new SplashPage(),
+      theme: ThemeData.light().copyWith(
+        primaryColor: _themeColor,
+        accentColor: _themeColor,
+        indicatorColor: Colors.white,
       ),
     );
   }
+  @override
+  void dispose() {
+    super.dispose();
+  }
 
+  void init() {
+    Options opt = DioUtil.getDefOptions();
+    opt.baseUrl = Constant.server_address;
+    String cookie = SpUtil.getString(BaseConstant.keyAppToken);
+    if(ObjectUtil.isEmpty(cookie)){
+      Map<String, dynamic> _header = new Map();
+      _header["cookie"] = cookie;
+      opt.headers = _header;
+    }
+    HttpConfig config = new HttpConfig(options: opt);
+    DioUtil().setConfig(config);
+  }
 }
-

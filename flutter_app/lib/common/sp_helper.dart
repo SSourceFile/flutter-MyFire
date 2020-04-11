@@ -40,6 +40,29 @@ class SpHelper {
     }
   }
 
+  static Object getData<T>(String key, Object value){
+    switch (T) {
+      case int:
+        SpUtil.getInt(key);
+        break;
+      case double:
+        SpUtil.getDouble(key);
+        break;
+      case bool:
+        SpUtil.getBool(key);
+        break;
+      case String:
+        SpUtil.getString(key);
+        break;
+      case List:
+        SpUtil.getStringList(key);
+        break;
+      default:
+        SpUtil.getObject(key);
+        break;
+    }
+  }
+
   static String getThemeColor() {
     return SpUtil.getString(Constant.key_theme_color,
         defValue: 'deepPurpleAccent');

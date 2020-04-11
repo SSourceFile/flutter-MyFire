@@ -6,9 +6,9 @@ class Record extends StatelessWidget{
   Widget build(BuildContext context) {
     // TODO: implement build
     return new Scaffold(
-      appBar: Toolbar.toolbar("发布记录"),
+      appBar: Toolbar.toolbar("约炮记录"),
       body: Container(
-        child: new Text("发布"),
+        child: new Text("您还没有约炮记录，请回到首页选择"),
       ),
     );
   }
