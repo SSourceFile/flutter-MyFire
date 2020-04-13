@@ -129,11 +129,11 @@ class SplashPageState extends State<SplashPage> {
 
   void _initSplash() {
 //    _splashModel = SpHelper.getSplashModel();
-    if (_splashModel == null) {
-      _goMain();
-    } else {
+//    if (_splashModel == null) {
+//      _goMain();
+//    } else {
       _doCountDown();
-    }
+//    }
   }
 
   void _doCountDown() {
@@ -146,7 +146,7 @@ class SplashPageState extends State<SplashPage> {
       setState(() {
         _count = _tick.toInt();
       });
-      if (_tick == 0) {
+      if (_count == 0) {
         _goMain();
       }
     });

@@ -30,7 +30,7 @@ dependencies:
   # https://github.com/flutter/plugins/tree/master/packages/url_launcher
   url_launcher: ^5.2.7
   # https://github.com/peng8350/flutter_pulltorefresh
-  pull_to_refresh: 1.1.6
+  pull_to_refresh: 1.5.7
   base_library:
     git:
       url: git://github.com/Sky24n/FlutterRepos.git

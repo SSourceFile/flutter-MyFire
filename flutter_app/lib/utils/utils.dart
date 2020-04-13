@@ -79,13 +79,13 @@ class Utils {
   }
 
   static int getLoadStatus(bool hasError, List data) {
-    if (hasError) return LoadStatus.fail;
-    if (data == null) {
-      return LoadStatus.loading;
-    } else if (data.isEmpty) {
-      return LoadStatus.empty;
-    } else {
-      return LoadStatus.success;
-    }
+//    if (hasError) return LoadStatus.fail;
+//    if (data == null) {
+//      return LoadStatus.loading;
+//    } else if (data.isEmpty) {
+//      return LoadStatus.empty;
+//    } else {
+      return 111;
+//    }
   }
 }

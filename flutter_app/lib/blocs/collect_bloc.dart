@@ -53,17 +53,17 @@ class CollectBloc implements BlocBase {
       }
       _collectList.addAll(list);
       _collectListSink.add(UnmodifiableListView<ReposModel>(_collectList));
-      _homeEventSink?.add(new StatusEvent(
-          labelId,
-          ObjectUtil.isEmpty(list)
-              ? RefreshStatus.noMore
-              : RefreshStatus.idle));
+//      _homeEventSink?.add(new StatusEvent(
+//          labelId,
+//          ObjectUtil.isEmpty(list)
+//              ? RefreshStatus.noMore
+//              : RefreshStatus.idle));
     }).catchError((_) {
       if (ObjectUtil.isEmpty(_collectList)) {
         _collectListBs.sink.addError("error");
       }
       _collectPage--;
-      _homeEventSink?.add(new StatusEvent(labelId, RefreshStatus.failed));
+//      _homeEventSink?.add(new StatusEvent(labelId, RefreshStatus.failed));
     });
   }
 

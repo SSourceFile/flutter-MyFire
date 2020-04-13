@@ -11,10 +11,14 @@ import 'package:flutterapp/MainPage.dart';
 
 void main(){
   Global.init((){
-    runApp(BlocProvider<ApplicationBloc>(
-      bloc: ApplicationBloc(),
-      child: BlocProvider(child: MyApp(), bloc: MainBloc(),),
-    ));
+    runApp(
+      //Flutter全灰
+//        ColorFiltered(colorFilter: ColorFilter.mode(Colors.white, BlendMode.color))
+        BlocProvider<ApplicationBloc>(
+          bloc: ApplicationBloc(),
+          child: BlocProvider(child: MyApp(), bloc: MainBloc(),),
+        ));
+
   });
 }
 
