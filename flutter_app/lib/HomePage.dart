@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterapp/common/common.dart';
-import 'package:flutterapp/homeData/HomeItemData.dart';
-import 'package:pull_to_refresh/pull_to_refresh.dart';
+import 'package:flutterapp/HomeDetailPager.dart';
 import 'package:flutterapp/data/repository/MeiziBean.dart';
+
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class HomePage extends StatelessWidget{
   RefreshController _refreshController = RefreshController(initialRefresh: false);
@@ -66,21 +66,31 @@ class HomePage extends StatelessWidget{
   }
 
  Widget _getListData(BuildContext context, int index){
-   return Container(
-     child: new Column(
-       children: <Widget>[
-         new Image.network(MeiziBean().listData[index]["imageUrl"], height: 500,width: 600.0, fit: BoxFit.fill,),
-         _whiteLine,
-         new Text(MeiziBean().listData[index]["title"], style:  TextStyle(fontSize: 20, color: Colors.blueAccent),),
-         _whiteLine,
-       ],
-     ),
+   return new GestureDetector(
+    child:  Container(
+      child: new Column(
+        children: <Widget>[
+          new Image.network(MeiziBean().listData[index]["imageUrl"], height: 500,width: 600.0, fit: BoxFit.fill,),
+          _whiteLine,
+          new Text(MeiziBean().listData[index]["title"], style:  TextStyle(fontSize: 20, color: Colors.blueAccent),),
+          _whiteLine,
+        ],
+      ),
+    ),
+     onTap: (){
+       onItemClick(index, context, MeiziBean().listData);
+     },
    );
+
  }
  Widget get _whiteLine{
    return new Container(
      height: 15,
    );
  }
+
+  void onItemClick(int index, BuildContext context, List listData) {
+    Navigator.push(context, MaterialPageRoute(builder: (context)=> HomeDetailPager(indexs: index, listData: listData)));
+  }
 
 }

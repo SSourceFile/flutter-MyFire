@@ -38,6 +38,7 @@ class MeiziBean{
       "author": 'Mohamed Chahin',
       "imageUrl": 'https://gank.io/images/21c417e3a84842bfa585dee686f6b992',
     },
+    
     {
       "title": 'white-dragon',
       "author": 'Mohamed Chahin',
@@ -48,29 +49,11 @@ class MeiziBean{
       "author": 'Mohamed Chahin',
       "imageUrl": 'https://gank.io/images/624ade89f93f421b8d4e8fafd86b1d8d',
     },
+
     {
       "title": 'white-dragon',
       "author": 'Mohamed Chahin',
-      "imageUrl": 'https://gank.io/images/624ade89f93f421b8d4e8fafd86b1d8d',
-    },{
-      "title": 'white-dragon',
-      "author": 'Mohamed Chahin',
-      "imageUrl": 'https://gank.io/images/624ade89f93f421b8d4e8fafd86b1d8d',
-    },
-    {
-      "title": 'white-dragon',
-      "author": 'Mohamed Chahin',
-      "imageUrl": 'https://gank.io/images/624ade89f93f421b8d4e8fafd86b1d8d',
-    },
-    {
-      "title": 'white-dragon',
-      "author": 'Mohamed Chahin',
-      "imageUrl": 'https://gank.io/images/624ade89f93f421b8d4e8fafd86b1d8d',
-    },
-    {
-      "title": 'white-dragon',
-      "author": 'Mohamed Chahin',
-      "imageUrl": 'https://gank.io/images/624ade89f93f421b8d4e8fafd86b1d8d',
+      "imageUrl": 'https://gank.io/images/7878d08eb776401a85deeb203372665c',
     },
     {
       "title": 'white-dragon',
