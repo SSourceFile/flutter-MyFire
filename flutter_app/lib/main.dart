@@ -1,13 +1,12 @@
 import 'package:base_library/base_library.dart';
 import 'package:dio/dio.dart';
-import 'package:flukit/example/example.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutterapp/MainPage.dart';
 import 'package:flutterapp/Splash.dart';
 import 'package:flutterapp/blocs/bloc_index.dart';
 import 'package:flutterapp/common/Global.dart';
-import 'package:flutter/material.dart';
 import 'package:flutterapp/common/component_index.dart';
-import 'package:flutterapp/MainPage.dart';
 
 void main(){
   Global.init((){
@@ -31,7 +30,7 @@ class MyApp extends StatefulWidget{
 
 }
 
-class MyAppState extends State {
+class MyAppState extends State{
   Color _themeColor = Colours.app_main;
 
   @override

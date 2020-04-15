@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutterapp/Animater.dart';
+import 'package:flutterapp/Dialog.dart';
 import 'package:flutterapp/ListImage.dart';
 import 'package:flutterapp/record/Record.dart';
 import 'package:flutterapp/setting/Setting.dart';
@@ -105,6 +106,9 @@ class Mine extends StatelessWidget{
               }),
               MineItemWidget("images/ic_mine_trade.png", "flutter动画", onTop: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context) => Animater()));
+              },),
+              MineItemWidget("images/ic_mine_trade.png", "flutter弹窗", onTop: (){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Dialogs()));
               },)
             ],
           ),
