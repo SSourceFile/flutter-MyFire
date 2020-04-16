@@ -53,11 +53,17 @@ class HomePageState extends State with TickerProviderStateMixin{
   }
   @override
   Widget build(BuildContext context) {
-    return ResideMenu.scaffold(
-      controller: _menuController,
-      enable3dRotate: true,
+    return new MaterialApp(
+
+      home: ResideMenu.scaffold(
+        controller: _menuController,
+        enable3dRotate: true,
         child: Scaffold(
-          appBar: AppBar(title: Text("首页"), leading: GestureDetector(
+          appBar: AppBar(
+            elevation: 0,
+            backgroundColor: Colors.orange,
+            brightness: Brightness.dark,
+            title: Text("首页"), leading: GestureDetector(
             child: Icon(Icons.menu),
             onTap: (){
               _menuController.openMenu(true);
@@ -97,54 +103,55 @@ class HomePageState extends State with TickerProviderStateMixin{
           ),
 
         ),
-        decoration: BoxDecoration(image: DecorationImage(image: new ExactAssetImage(Utils.getImgPath("fire")),
+        decoration: BoxDecoration(image: DecorationImage(image: new ExactAssetImage(Utils.getImgPath("guide4")),
           fit: BoxFit.cover,)),
-      leftScaffold: MenuScaffold(
-        header: ConstrainedBox(
-          constraints: BoxConstraints(maxHeight: 60.0, maxWidth: 60.0),
-          child: CircleAvatar(
-            backgroundImage: NetworkImage('https://gank.io/images/1af9d69bc60242d7aa2e53125a4586ad'),
-            radius: 40.0,
+        leftScaffold: MenuScaffold(
+          header: ConstrainedBox(
+            constraints: BoxConstraints(maxHeight: 60.0, maxWidth: 60.0),
+            child: CircleAvatar(
+              backgroundImage: AssetImage(Utils.getImgPath("fire")),//NetworkImage('https://gank.io/images/7878d08eb776401a85deeb203372665c'),
+              radius: 40.0,
+            ),
           ),
+          children: <Widget>[
+            buildItem("各种指示器", Icon(Icons.apps, size: 25, color: Colors.blue),
+                    () {
+                  setState(() {
+                    _tabIndex = 0;
+                  });
+                  _pageController.jumpToPage(0);
+                  _menuController.closeMenu();
+                }),
+            buildItem(
+                "例子", Icon(Icons.insert_emoticon, size: 25, color: Colors.blue),
+                    () {
+                  setState(() {
+                    _tabIndex = 1;
+                  });
+                  _pageController.jumpToPage(1);
+                  _menuController.closeMenu();
+                }),
+            buildItem("测试",
+                Icon(Icons.airplanemode_active, size: 25, color: Colors.blue),
+                    () {
+                  setState(() {
+                    _tabIndex = 2;
+                  });
+                  _menuController.closeMenu();
+                  _pageController.jumpToPage(2);
+                }),
+            buildItem("App界面",
+                Icon(Icons.format_underlined, size: 25, color: Colors.blue), () {
+                  setState(() {
+                    _tabIndex = 4;
+                  });
+                  _menuController.closeMenu();
+                  _pageController.jumpToPage(4);
+                }),
+          ],
         ),
-        children: <Widget>[
-          buildItem("各种指示器", Icon(Icons.apps, size: 18, color: Colors.grey),
-                  () {
-                setState(() {
-                  _tabIndex = 0;
-                });
-                _pageController.jumpToPage(0);
-                _menuController.closeMenu();
-              }),
-          buildItem(
-              "例子", Icon(Icons.insert_emoticon, size: 18, color: Colors.grey),
-                  () {
-                setState(() {
-                  _tabIndex = 1;
-                });
-                _pageController.jumpToPage(1);
-                _menuController.closeMenu();
-              }),
-          buildItem("测试",
-              Icon(Icons.airplanemode_active, size: 18, color: Colors.grey),
-                  () {
-                setState(() {
-                  _tabIndex = 2;
-                });
-                _menuController.closeMenu();
-                _pageController.jumpToPage(2);
-              }),
-          buildItem("App界面",
-              Icon(Icons.format_underlined, size: 18, color: Colors.grey), () {
-                setState(() {
-                  _tabIndex = 4;
-                });
-                _menuController.closeMenu();
-                _pageController.jumpToPage(4);
-              }),
-        ],
       ),
-      );
+    );
 
   }
 
@@ -184,7 +191,7 @@ class HomePageState extends State with TickerProviderStateMixin{
           title: msg,
           titleStyle: TextStyle(fontSize: 20.0, color: Colors.blue),
           icon: icon,
-          right: const Icon(Icons.arrow_forward, color: Colors.grey),
+          right: const Icon(Icons.arrow_forward, color: Colors.blue),
         ),
         onTap: voidCallBack,
       ),

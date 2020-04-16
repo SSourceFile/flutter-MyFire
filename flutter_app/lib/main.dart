@@ -48,7 +48,7 @@ class MyAppState extends State{
       theme: ThemeData.light().copyWith(
         primaryColor: _themeColor,
         accentColor: _themeColor,
-        indicatorColor: Colors.white,
+        indicatorColor: Colors.blue,
       ),
     );
   }

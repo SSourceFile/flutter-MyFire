@@ -86,9 +86,9 @@ class Mine extends StatelessWidget{
           appBar: AppBar(
             title: Text("我的", style: new TextStyle(color: Colors.white),),
             centerTitle: true,
-            backgroundColor: Colors.deepOrange,
+            backgroundColor: Colors.orange,
             elevation: 0,
-            brightness: Brightness.light,
+            brightness: Brightness.dark,
           ),
           body: ListView(
             children: <Widget>[
@@ -134,7 +134,7 @@ class Mine extends StatelessWidget{
   /**个人中心头部*/
   Widget get _MineHeader{
     return Container(
-      color: Colors.deepOrange,
+      color: Colors.orange,
       height: 150,
       padding: new EdgeInsets.all(12.0),
       child: Row(

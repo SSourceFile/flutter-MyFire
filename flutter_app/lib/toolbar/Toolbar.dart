@@ -5,6 +5,9 @@ class Toolbar{
     return new AppBar(
       title: Text(title, style: new TextStyle(color: Colors.white),),
       centerTitle: true,
+      backgroundColor: Colors.orange,
+      elevation: 0,
+      brightness: Brightness.dark,
       iconTheme: new IconThemeData(
           color: Colors.white
       ),
