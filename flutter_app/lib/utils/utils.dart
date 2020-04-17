@@ -2,7 +2,6 @@ import 'package:common_utils/common_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterapp/common/common.dart';
 import 'package:flutterapp/res/index.dart';
-//import 'package:lpinyin/lpinyin.dart';
 
 class Utils {
   static String getImgPath(String name, {String format: 'jpg'}) {
@@ -32,10 +31,6 @@ class Utils {
   }
 
   static String getTimeLine(BuildContext context, int timeMillis) {
-//    LogUtil.e("countryCode: " +
-//        Localizations.localeOf(context).countryCode +
-//        "   languageCode: " +
-//        Localizations.localeOf(context).languageCode);
     return TimelineUtil.format(timeMillis,
         locale: Localizations.localeOf(context).languageCode,
         dayFormat: DayFormat.Common);
@@ -57,9 +52,6 @@ class Utils {
     return (count >= 10 || title.length > 16) ? 14.0 : 18.0;
   }
 
-  /// 0
-  /// -1
-  /// 1
   static int getUpdateStatus(String version) {
     String locVersion = AppConfig.version;
     int remote = int.tryParse(version.replaceAll('.', ''));

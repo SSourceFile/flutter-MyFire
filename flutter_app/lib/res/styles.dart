@@ -1,6 +1,6 @@
 import 'package:base_library/base_library.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutterapp/res/index.dart';
+
 
 class TextStyles {
   static TextStyle listTitle = TextStyle(

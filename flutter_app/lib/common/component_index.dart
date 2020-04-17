@@ -1,7 +1,7 @@
 export 'dart:convert';
 
 export 'package:flutterapp/blocs/bloc_index.dart';
-export 'package:flutterapp/widget/widget_index.dart';
+
 export 'package:flutterapp/res/index.dart';
 export 'package:flutterapp/utils/util_index.dart';
 

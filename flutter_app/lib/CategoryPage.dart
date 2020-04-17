@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterapp/HotRecomend/HotRecomend.dart';
 import 'package:flutterapp/toolbar/Toolbar.dart';
 
 /**
@@ -53,7 +54,7 @@ class CategoryPageState extends State with TickerProviderStateMixin{
         body: TabBarView(
           controller: this._tabController,
           children: <Widget>[
-            Center(child: Text('热销')),
+            HotRecomend(),
             Center(child: Text('推荐')),
             Center(child: Text('推荐')),
             Center(child: Text('推荐')),

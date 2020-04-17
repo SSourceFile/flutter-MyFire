@@ -7,7 +7,7 @@ class Constant {
 
   static const String server_address = wan_android;
 
-  static const String wan_android = "https://gank.io/api/v2/banners";
+  static const String wan_android = "https://www.wanandroid.com/";
 
   static const int type_sys_update = 1;
   static const int type_refresh_all = 5;
