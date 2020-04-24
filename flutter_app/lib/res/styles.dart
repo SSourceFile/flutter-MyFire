@@ -1,26 +1,27 @@
-import 'package:base_library/base_library.dart';
+
 import 'package:flutter/widgets.dart';
+import 'package:flutterapp/res/dimens.dart';
 
 
 class TextStyles {
   static TextStyle listTitle = TextStyle(
     fontSize: Dimens.font_sp16,
-    color: Colours.text_dark,
+//    color: _Colours.text_dark,
     fontWeight: FontWeight.bold,
   );
   static TextStyle listContent = TextStyle(
     fontSize: Dimens.font_sp14,
-    color: Colours.text_normal,
+//    color: _Colours.text_normal,
   );
   static TextStyle listExtra = TextStyle(
     fontSize: Dimens.font_sp12,
-    color: Colours.text_gray,
+//    color: _Colours.text_gray,
   );
 }
 
 class Decorations {
-  static Decoration bottom = BoxDecoration(
-      border: Border(bottom: BorderSide(width: 0.33, color: Colours.divider)));
+//  static Decoration bottom = BoxDecoration(
+//      border: Border(bottom: BorderSide(width: 0.33, color: _Colours.divider)));
 }
 /// 间隔
 class Gaps {

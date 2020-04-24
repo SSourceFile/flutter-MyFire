@@ -5,6 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:flutterapp/common/component_index.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:flutterapp/utils/http_utils.dart';
+
+import 'common/component_index.dart';
 //void main(){
 //  runApp(MyApp());
 //  if(Platform.isAndroid){
@@ -154,7 +156,7 @@ class SplashPageState extends State<SplashPage> {
   }
 
   void _goMain() {
-    Navigator.of(context).pushReplacementNamed(BaseConstant.routeMain);
+    Navigator.of(context).pushReplacementNamed('/HomePager');
   }
 
   Widget _buildSplashBg() {

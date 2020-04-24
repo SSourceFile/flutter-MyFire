@@ -31,10 +31,6 @@ dependencies:
   url_launcher: ^5.2.7
   # https://github.com/peng8350/flutter_pulltorefresh
   pull_to_refresh: 1.5.7
-  base_library:
-    git:
-      url: git://github.com/Sky24n/FlutterRepos.git
-      path: base_library
   # device_info
   #  device_info: ^0.4.0+1
   # webview_flutter

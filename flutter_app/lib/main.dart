@@ -1,4 +1,3 @@
-import 'package:base_library/base_library.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -31,7 +30,7 @@ class MyApp extends StatefulWidget{
 }
 
 class MyAppState extends State{
-  Color _themeColor = Colours.app_main;
+  Color _themeColor = Colors.orange;
 
   @override
   void initState() {
@@ -42,7 +41,7 @@ class MyAppState extends State{
   Widget build(BuildContext context) {
     return new MaterialApp(
       routes: {
-        BaseConstant.routeMain: (ctx) => MainPage(),
+        '/HomePager':(_) => MainPage(),
       },
       home: new SplashPage(),
       theme: ThemeData.light().copyWith(
@@ -58,15 +57,15 @@ class MyAppState extends State{
   }
 
   void init() {
-    Options opt = DioUtil.getDefOptions();
-    opt.baseUrl = Constant.server_address;
-    String cookie = SpUtil.getString(BaseConstant.keyAppToken);
-    if(ObjectUtil.isEmpty(cookie)){
-      Map<String, dynamic> _header = new Map();
-      _header["cookie"] = cookie;
-      opt.headers = _header;
-    }
-    HttpConfig config = new HttpConfig(options: opt);
-    DioUtil().setConfig(config);
+//    Options opt = DioUtil.getDefOptions();
+//    opt.baseUrl = Constant.server_address;
+//    String cookie = SpUtil.getString(BaseConstant.keyAppToken);
+//    if(ObjectUtil.isEmpty(cookie)){
+//      Map<String, dynamic> _header = new Map();
+//      _header["cookie"] = cookie;
+//      opt.headers = _header;
+//    }
+//    HttpConfig config = new HttpConfig(options: opt);
+//    DioUtil().setConfig(config);
   }
 }
