@@ -1,22 +1,23 @@
 //import 'package:base_library/base_library.dart';
+import 'dart:convert';
+
 import 'package:flutterapp/common/common.dart';
+import 'package:flutterapp/data/api/HttpRequest.dart';
 import 'package:flutterapp/data/api/apis.dart';
 import 'package:flutterapp/data/protocol/models.dart';
+import 'package:flutterapp/data/repository/BannerBean.dart';
 
 class WanRepository {
-  Future<List<BannerModel>> getBanner() async {
-//    BaseResp<List> baseResp = await DioUtil().request<List>(
-//        Method.get, WanAndroidApi.getPath(path: WanAndroidApi.BANNER));
-//    List<BannerModel> bannerList;
-//    if (baseResp.code != Constant.status_success) {
-//      return new Future.error(baseResp.msg);
-//    }
-//    if (baseResp.data != null) {
-//      bannerList = baseResp.data.map((value) {
-//        return BannerModel.fromJson(value);
-//      }).toList();
-//    }
-//    return bannerList;
+  void getBanner() async {
+    Map<String,String> parms = {"student_id":""};
+    Map<String,String> headers = {"token":""};
+    Net.instance.get(Constant.wan_android+WanAndroidApi.BANNER, null, success: (data){
+      List<dynamic> d = data;
+
+      print("成功了"+d[0]["imagePath"]);
+    }, failure: (err){
+      print("数据错误了"+err);
+    });
   }
 
   Future<List<ReposModel>> getArticleListProject(int page) async {

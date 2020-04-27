@@ -1,6 +1,6 @@
 class WanAndroidApi {
   /// 首页banner http://www.wanandroid.com/banner/json
-  static const String BANNER = "banners";
+  static const String BANNER = "banner/json";
 
   /// 最新项目tab (首页的第二个tab) http://wanandroid.com/article/listproject/0/json
   static const String ARTICLE_LISTPROJECT = "article/listproject";

@@ -28,9 +28,7 @@ class HotRecomendState extends State{
   void _loadBanner() {
 //    DioUtil().getDio().get(WanAndroidApi.BANNER).then((response){
 //      callback(HomeBannerModel.fromJson(response.data));
-    var banner = WanRepository().getBanner().whenComplete((){
-
-    });
+   WanRepository().getBanner();
 //    });
   }
 

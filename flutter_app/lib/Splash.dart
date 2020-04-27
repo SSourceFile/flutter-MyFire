@@ -7,14 +7,7 @@ import 'package:rxdart/rxdart.dart';
 import 'package:flutterapp/utils/http_utils.dart';
 
 import 'common/component_index.dart';
-//void main(){
-//  runApp(MyApp());
-//  if(Platform.isAndroid){
-//    SystemUiOverlayStyle style = SystemUiOverlayStyle(statusBarColor: Colors.transparent);
-//    SystemChrome.setSystemUIOverlayStyle(style);
-//  }
-//}
-//
+
 class SplashPage extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -242,7 +235,6 @@ class SplashPageState extends State<SplashPage> {
                   width: double.infinity,
                   height: double.infinity,
                   fit: BoxFit.fill,
-
 //                  placeholder: _buildSplashBg(),
 //                  errorWidget: _buildSplashBg(),
                 ),
