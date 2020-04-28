@@ -9,7 +9,7 @@ class WanAndroidApi {
   static const String PROJECT_TREE = "project/tree";
 
   /// 项目列表数据 http://www.wanandroid.com/project/list/1/json?cid=294
-  static const String PROJECT_LIST = "project/list";
+  static const String PROJECT_LIST = "project/list/1/json";
 
   /// 体系数据 http://www.wanandroid.com/tree/json
   static const String TREE = "tree";

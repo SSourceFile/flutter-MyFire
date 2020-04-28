@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterapp/toolbar/Toolbar.dart';
+import 'package:flutterapp/widgetTools/Toolbar.dart';
 class Setting extends StatelessWidget{
   @override
   Widget build(BuildContext context) {

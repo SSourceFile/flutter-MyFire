@@ -5,7 +5,6 @@ import 'package:flutter/services.dart';
 import 'package:flutterapp/Mine.dart';
 import 'package:flutterapp/CategoryPage.dart';
 import 'package:flutterapp/HomePage.dart';
-import 'package:flutterapp/toolbar/Toolbar.dart';
 
 class MainPage extends StatelessWidget {
   @override

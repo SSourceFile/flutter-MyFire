@@ -1,22 +1,26 @@
 //import 'package:base_library/base_library.dart';
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
 import 'package:flutterapp/common/common.dart';
 import 'package:flutterapp/data/api/HttpRequest.dart';
 import 'package:flutterapp/data/api/apis.dart';
 import 'package:flutterapp/data/protocol/models.dart';
 import 'package:flutterapp/data/repository/BannerBean.dart';
+import 'package:flutterapp/widgetTools/Toaster.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class WanRepository {
-  void getBanner() async {
-    Map<String,String> parms = {"student_id":""};
-    Map<String,String> headers = {"token":""};
-    Net.instance.get(Constant.wan_android+WanAndroidApi.BANNER, null, success: (data){
+  void getBanner({Function data, Function err}) async {
+
+    Net.instance.get(Constant.wan_android + WanAndroidApi.BANNER, null,
+        success: (data) {
       List<dynamic> d = data;
 
-      print("成功了"+d[0]["imagePath"]);
-    }, failure: (err){
-      print("数据错误了"+err);
+      Toaster.show("成功了");
+    }, failure: (err) {
+//      print("数据错误了" + err);
+      Toaster.show(err.toString());
     });
   }
 

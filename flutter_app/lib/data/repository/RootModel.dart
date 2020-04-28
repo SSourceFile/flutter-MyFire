@@ -1,8 +1,8 @@
 
-class RootModel{
+class RootModel<T>{
   RootModel({this.data, this.errorCode, this.errorMsg});
 
-  dynamic data;
+  T data;
   int errorCode;
   String errorMsg;
 
