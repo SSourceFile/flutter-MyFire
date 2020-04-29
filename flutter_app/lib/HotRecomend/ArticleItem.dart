@@ -23,18 +23,23 @@ class ArticleItem extends StatefulWidget {
 
   @override
   State createState() {
-    return _ArticleItemState();
+    return _ArticleItemState(itemData);
   }
 }
 
 class _ArticleItemState extends State<ArticleItem> {
+  dynamic data;
+  _ArticleItemState(itemData){
+    this.data = itemData;
+  }
+
   @override
   Widget build(BuildContext context) {
     List<Widget> rightWidgetList = [];
 
     rightWidgetList.add(
       Text(
-        widget.itemData.title,
+        data["title"],
         style: TextStyle(
           color: Colors.black,
           fontSize: 15.0,
@@ -68,8 +73,8 @@ class _ArticleItemState extends State<ArticleItem> {
               width: 70,
               child: Center(
                 child: IconButton(
-                  icon: Icon(widget.itemData.collect ? Icons.favorite : Icons.favorite_border),
-                  color: widget.itemData.collect ? Colors.deepOrange : Colors.grey,
+                  icon: Icon(Icons.favorite),
+                  color: Colors.deepOrange,
 //                  onPressed: collectArticle,
                 ),
               ),
@@ -96,42 +101,13 @@ class _ArticleItemState extends State<ArticleItem> {
 //    Navigator.pushNamed(context, Routes.webViewPage, arguments: pageData);
   }
 
-  //构建中间的tag
-//  _buildMiddleTags() {
-//    List<Widget> tagsList = [];
-//    //加入置顶标签
-//    if (1 == widget.itemData.type) {
-//      tagsList.add('置顶');
-//    }
-//    //加入 新 标签
-//    if (widget.itemData.fresh != null && widget.itemData.fresh) {
-//      tagsList.add(ToolUtils.buildStrokeTagWidget('新', Colors.redAccent));
-//    }
-//    //加入 tag 标签
-//    if (widget.itemData.tags != null && widget.itemData.tags.length > 0) {
-//      tagsList.addAll(widget.itemData.tags.map((item) => ToolUtils.buildStrokeTagWidget(item.name, Colors.green)).toList());
-//    }
-//    if (tagsList.length > 0) {
-//      return Container(
-//        margin: EdgeInsets.symmetric(vertical: 3.0, horizontal: 0.0),
-//        child: Row(
-//          children: tagsList,
-//        ),
-//      );
-//    } else {
-//      return Container(
-//        height: 18,
-//      );
-//    }
-//  }
-
   Widget _buildBottomInfo() {
     List<Widget> infoList = [];
-    var itemData = widget.itemData;
+
 
     //图标
     infoList.add(Icon(
-      itemData.author == "" ? Icons.folder_shared : Icons.person,
+      Icons.folder_shared,
       color: Colors.orange,
       size: 20.0,
     ));
@@ -145,7 +121,7 @@ class _ArticleItemState extends State<ArticleItem> {
               left: 5.0,
               right: 6.0),
           child: Text(
-            itemData.author,
+            data["author"],
             //只展示一行
             maxLines: 1,
             //超出 展示...
@@ -163,7 +139,7 @@ class _ArticleItemState extends State<ArticleItem> {
     //时间
     infoList.add(Expanded(
       child: Text(
-        '时间: ' + itemData.niceDate,
+        '时间: ' + data["niceDate"],
         style: TextStyle(
           color: Colors.black54,
           fontSize: 10.0,
@@ -179,7 +155,7 @@ class _ArticleItemState extends State<ArticleItem> {
         padding: EdgeInsets.only(right: 10),
         child: GestureDetector(
           child: Text(
-            itemData.superChapterName + " / " + itemData.chapterName,
+            data["superChapterName"] + " / " + data["chapterName"],
             maxLines: 1,
             style: TextStyle(
               color: widget.isHomeShow ? Colors.blue : Colors.black54,
@@ -196,63 +172,4 @@ class _ArticleItemState extends State<ArticleItem> {
       children: infoList,
     );
   }
-
-  //收藏文章
-//  void collectArticle() async {
-//    bool isLogin = await dataUtils.isLogin();
-//    if (!isLogin) {
-//      //未登录,跳转到登录界面
-//      Navigator.pushNamed(context, Routes.loginPage);
-//      return;
-//    }
-
-    //已登录
-
-    //之前已收藏  那么就是取消收藏
-//    if (ToolUtils.getNotNullBool(widget.itemData.collect)) {
-//      //这里区分一下  在我的收藏页调用取消收藏的接口 不一样
-//      if (widget.isMyFavoritePage) {
-//        await dataUtils.cancelCollectArticleForMyFavoritePage(widget.itemData.id, widget.itemData.originId == null ? "-1" : widget.itemData.originId);
-//      } else {
-//        await dataUtils.cancelCollectArticle(widget.itemData.id);
-//      }
-//      setState(() {
-//        widget.itemData.collect = false;
-//      });
-//      ToolUtils.showToast(msg: "取消收藏成功");
-//    } else {
-//      //收藏
-//      await dataUtils.collectArticle(widget.itemData.id);
-//      setState(() {
-//        widget.itemData.collect = true;
-//      });
-//      ToolUtils.showToast(msg: "收藏成功");
-//    }
-//  }
-
-  ///查看作者文章  or  分享人的文章
-//  void gotoAuthorListPage() {
-//    if (widget.isClickUser) {
-//      //如果作者不为空，说明可以根据作者昵称查看文章 否则查看 分享人 列表数据
-//      if (widget.itemData.author == "") {
-//        KnowledgePageData knowledgePageData =
-//        KnowledgePageData(KnowledgePage.SHARE_AUTHOR_PAGE_TYPE, userId: widget.itemData.userId, title: widget.itemData.shareUser);
-//        Navigator.pushNamed(context, Routes.knowledgePage, arguments: knowledgePageData);
-//      } else {
-//        KnowledgePageData knowledgePageData =
-//        KnowledgePageData(KnowledgePage.AUTHOR_PAGE_TYPE, userId: widget.itemData.userId, title: widget.itemData.author);
-//        Navigator.pushNamed(context, Routes.knowledgePage, arguments: knowledgePageData);
-//      }
-//      LogUtil.d(widget.itemData.toString());
-//    }
-//  }
-
-  ///跳转到 知识体系文章列表
-//  void gotoKnowledgeArticleList() {
-//    if (widget.isHomeShow) {
-//      KnowledgePageData knowledgePageData =
-//      KnowledgePageData(KnowledgePage.KNOWLEDGE_ARTICLE_PAGE_TYPE, title: widget.itemData.chapterName, cid: widget.itemData.chapterId);
-//      Navigator.pushNamed(context, Routes.knowledgePage, arguments: knowledgePageData);
-//    }
-//  }
 }

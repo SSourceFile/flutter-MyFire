@@ -103,9 +103,9 @@ class HotRecomendState extends State {
         print("成功1"+data.toString());
         setState(() {
           ListData = data["datas"];
-          var map = json.decode(data["datas"]);
-          HotBean b = HotBean.fromJson(map);
-          print("shuju "+b.author);
+//          var map = json.decode(data["datas"]);
+//          HotBean b = HotBean.fromJson(map);
+//          print("shuju "+b.author);
         });
     }, failure: (err){
         print("失败");

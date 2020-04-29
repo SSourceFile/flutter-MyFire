@@ -30,15 +30,15 @@ class Net{
     return _instance;
   }
 
-  get(String url, Map<String,dynamic> params, {Function success,Function failure}){
+  Future get<T>(String url, Map<String,dynamic> params, {Function(T) success,Function failure}){
     _doRequest(url, params, Method.get, success, failure);
   }
 
-  post(String url, Map<String,dynamic> params, {Function success,Function failure}){
+  post<T>(String url, Map<String,dynamic> params, {Function(T) success,Function failure}){
     _doRequest(url, params, Method.post, success, failure);
   }
 
-  void _doRequest(String url, Map<String,dynamic> params ,Method method, Function successCallBack, Function failureCallBack) async{
+  void _doRequest<T>(String url, Map<String,dynamic> params ,Method method, Function(T) successCallBack, Function failureCallBack) async{
     try{
       Response response;
       switch (method){
