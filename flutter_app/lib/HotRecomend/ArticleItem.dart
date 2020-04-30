@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutterapp/common/CommonKey.dart';
 import 'package:flutterapp/data/repository/HotBean.dart';
+import 'package:flutterapp/widgetTools/Toaster.dart';
 
 class ArticleItem extends StatefulWidget {
   final dynamic itemData;
@@ -96,9 +98,11 @@ class _ArticleItemState extends State<ArticleItem> {
 
   ///文章 item 点击事件
   void _onClickArticleItem() {
+    Toaster.show("跳转");
 //    RouteWebPageData pageData =
 //    new RouteWebPageData(id: widget.itemData.id, title: widget.itemData.title, url: widget.itemData.link, collect: widget.itemData.collect);
-//    Navigator.pushNamed(context, Routes.webViewPage, arguments: pageData);
+//    Navigator.pushNamed(context, '/WebView');
+    Navigator.of(context).pushNamed('/WebView', arguments: {'s':'ss'});
   }
 
   Widget _buildBottomInfo() {

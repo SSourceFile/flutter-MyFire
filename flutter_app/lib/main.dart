@@ -6,6 +6,9 @@ import 'package:flutterapp/Splash.dart';
 import 'package:flutterapp/blocs/bloc_index.dart';
 import 'package:flutterapp/common/Global.dart';
 import 'package:flutterapp/common/component_index.dart';
+import 'package:flutterapp/web/WebView.dart';
+
+import 'common/CommonKey.dart';
 
 void main(){
   Global.init((){
@@ -40,15 +43,20 @@ class MyAppState extends State{
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      routes: {
-        '/HomePager':(_) => MainPage(),
-      },
+
+//      routes: {
+//        '/HomePager':(_) => MainPage(),
+//        CommonKey.WEBVIEW:(_) => BaseWebView(),
+//      },
+      initialRoute: CommonKey.initRouteName,
+      routes: CommonKey.router,
       home: new SplashPage(),
       theme: ThemeData.light().copyWith(
         primaryColor: _themeColor,
         accentColor: _themeColor,
         indicatorColor: Colors.blue,
       ),
+      onGenerateRoute: CommonKey.onGenerateRoute,
     );
   }
   @override

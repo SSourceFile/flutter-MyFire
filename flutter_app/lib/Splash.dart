@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutterapp/common/CommonKey.dart';
 import 'package:flutterapp/common/component_index.dart';
+import 'package:flutterapp/setting/Setting.dart';
 import 'package:rxdart/rxdart.dart';
 import 'package:flutterapp/utils/http_utils.dart';
 
@@ -149,7 +151,8 @@ class SplashPageState extends State<SplashPage> {
   }
 
   void _goMain() {
-    Navigator.of(context).pushReplacementNamed('/HomePager');
+    Navigator.of(context).pushReplacementNamed('/HomePage');
+//      CommonKey.onGenerateRoute(RouteSettings(name: ''));
   }
 
   Widget _buildSplashBg() {
