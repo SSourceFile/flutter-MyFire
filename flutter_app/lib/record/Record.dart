@@ -5,17 +5,6 @@ import 'package:flutterapp/widgetTools/Toolbar.dart';
 
 class Record extends StatefulWidget {
   @override
-  Widget build(BuildContext context) {
-    // TODO: implement build
-    return new Scaffold(
-      appBar: Toolbar.toolbar("记录"),
-      body: Container(
-        child: new Text("选择"),
-      ),
-    );
-  }
-
-  @override
   State<StatefulWidget> createState() {
     return RecordState();
   }
@@ -24,19 +13,23 @@ class Record extends StatefulWidget {
 class RecordState extends State {
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _getBanner();
   }
   @override
   Widget build(BuildContext context) {
 
-    return new StreamBuilder();
+    return new Scaffold(
+      appBar: Toolbar.toolbar('约炮记录'),
+      body: new Container(
+        child:  new Center(
+          child: Text('约你妹的，就不好好学习'),
+        ),
+      ),
+    );
   }
 
   void _getBanner() {
-//    AsyncSnapshot <List<BannerModel>> list = WanRepository().getBanner();
-
 
   }
 }

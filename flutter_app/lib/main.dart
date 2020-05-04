@@ -44,19 +44,19 @@ class MyAppState extends State{
   Widget build(BuildContext context) {
     return new MaterialApp(
 
-//      routes: {
-//        '/HomePager':(_) => MainPage(),
-//        CommonKey.WEBVIEW:(_) => BaseWebView(),
-//      },
+      routes: {
+        '/HomePage':(_) => MainPage(),
+//        '/aaaa':(_) => BaseWebView(),
+      },
       initialRoute: CommonKey.initRouteName,
-      routes: CommonKey.router,
+//      routes: CommonKey.router,
       home: new SplashPage(),
       theme: ThemeData.light().copyWith(
         primaryColor: _themeColor,
         accentColor: _themeColor,
         indicatorColor: Colors.blue,
       ),
-      onGenerateRoute: CommonKey.onGenerateRoute,
+//      onGenerateRoute: CommonKey.onGenerateRoute,
     );
   }
   @override

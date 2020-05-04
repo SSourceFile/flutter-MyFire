@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterapp/common/CommonKey.dart';
 import 'package:flutterapp/data/repository/HotBean.dart';
+import 'package:flutterapp/web/WebView.dart';
 import 'package:flutterapp/widgetTools/Toaster.dart';
 
 class ArticleItem extends StatefulWidget {
@@ -91,18 +92,16 @@ class _ArticleItemState extends State<ArticleItem> {
             ),
           ],
         ),
-        onTap: _onClickArticleItem,
+        onTap: (){
+          Toaster.show("跳转");
+          Navigator.push(context, MaterialPageRoute(builder: (context) => BaseWebView(data["link"])));
+        },
       ),
     );
   }
 
   ///文章 item 点击事件
-  void _onClickArticleItem() {
-    Toaster.show("跳转");
-//    RouteWebPageData pageData =
-//    new RouteWebPageData(id: widget.itemData.id, title: widget.itemData.title, url: widget.itemData.link, collect: widget.itemData.collect);
-//    Navigator.pushNamed(context, '/WebView');
-    Navigator.of(context).pushNamed('/WebView', arguments: {'s':'ss'});
+  void _onClickArticleItem(dynamic itemData) {
   }
 
   Widget _buildBottomInfo() {

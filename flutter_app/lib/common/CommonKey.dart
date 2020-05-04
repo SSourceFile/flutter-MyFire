@@ -10,9 +10,9 @@ import '../MainPage.dart';
 class CommonKey{
   static final initRouteName = '/';
   static final Map<String, WidgetBuilder> router = {
-    '/Splash': (BuildContext context) => SplashPage(),
+//    '/Splash': (BuildContext context) => SplashPage(),
     '/HomePage': (BuildContext context) => MainPage(),
-    '/WebView': (BuildContext context) => BaseWebView()
+//    '/WebView': (BuildContext context) => BaseWebView()
   };
 //  static const String WEBVIEW = "/WebView";
   static Route<dynamic> onGenerateRoute(RouteSettings settings){

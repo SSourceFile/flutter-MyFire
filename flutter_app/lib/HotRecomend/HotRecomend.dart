@@ -51,8 +51,6 @@ class HotRecomendState extends State {
   void _loadBanner() async {
     Net.instance.get(Constant.wan_android + WanAndroidApi.BANNER, null,
         success: (data) {
-          List<dynamic> d = data;
-
           setState(() {
             bannerData = data;
           });
@@ -79,36 +77,15 @@ class HotRecomendState extends State {
     );
   }
 
-//  Widget _getListData(BuildContext context, int index) {
-//    return new GestureDetector(
-//      child: Container(
-//        child: new Column(
-//          children: <Widget>[
-//            new Image.network(ListData[index]["envelopePic"], width: 80.0, height: 80.0,),
-//            new Text(ListData[index]["chapterName"],
-//              style: TextStyle(fontSize: 20, color: Colors.blueAccent),),
-//          ],
-//        ),
-//      ),
-//      onTap: () {
-////        onItemClick(index, context, MeiziBean().listData);
-//      },
-//    );
-//  }
-
   void _loadListData() async{
     Map<String, dynamic> param = new HashMap();
     param["pageIndex"] = 1;
     Net.instance.get(Constant.wan_android+WanAndroidApi.PROJECT_LIST, param, success: (data){
-        print("成功1"+data.toString());
         setState(() {
           ListData = data["datas"];
-//          var map = json.decode(data["datas"]);
-//          HotBean b = HotBean.fromJson(map);
-//          print("shuju "+b.author);
         });
     }, failure: (err){
-        print("失败");
+        Toaster.show(err.toString());
     });
 
   }

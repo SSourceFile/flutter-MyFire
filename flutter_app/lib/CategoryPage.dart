@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutterapp/HotRecomend/HotRecomend.dart';
+import 'package:flutterapp/HotRecomend/Second/SecondCategory.dart';
+import 'package:flutterapp/HotRecomend/three/ThreeCategory.dart';
 
 /**
  * 分类
@@ -19,15 +21,12 @@ class CategoryPageState extends State with TickerProviderStateMixin{
   @override
   void initState() {
     super.initState();
-    _tabController = new TabController(length: 6, vsync: this);
+    _tabController = new TabController(length: 3, vsync: this);
   }
   final List<Tab> titleTab = [
     Tab(text: '热门推荐',),
     Tab(text: '少妇推荐',),
     Tab(text: '清纯少女',),
-    Tab(text: '青涩',),
-    Tab(text: '高冷',),
-    Tab(text: '温柔',),
 
   ];
   @override
@@ -54,11 +53,8 @@ class CategoryPageState extends State with TickerProviderStateMixin{
           controller: this._tabController,
           children: <Widget>[
             HotRecomend(),
-            Center(child: Text('推荐')),
-            Center(child: Text('推荐')),
-            Center(child: Text('推荐')),
-            Center(child: Text('推荐')),
-            Center(child: Text('推荐'))
+            SecondCategory(),
+            ThreeCategory(),
           ],
         ),
       ),

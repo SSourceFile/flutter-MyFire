@@ -53,7 +53,7 @@ android {
         release {
             keyAlias 'key'
             keyPassword '123456'
-            storeFile file('/Users/hmh/flutter-MyFire/flutter_app/android/app/key.jks')
+            storeFile file('E:\\shuju\\MyFlutter\\flutter_app\\android\\app\\key.jks')
             storePassword '123456'
         }
     }

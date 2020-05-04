@@ -108,7 +108,9 @@ class Mine extends StatelessWidget{
                 Navigator.push(context, MaterialPageRoute(builder: (context) => Animater()));
               },),
               MineItemWidget("images/ic_mine_trade.png", "flutter弹窗", onTop: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => Dialogs()));
+//                Navigator.push(context, MaterialPageRoute(builder: (context) => Dialogs()));
+
+                Navigator.of(context).pushNamed('/WebView');
               },)
             ],
           ),

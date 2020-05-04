@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 
 import 'package:flutterapp/data/repository/RootModel.dart';
+import 'package:flutterapp/widgetTools/Toaster.dart';
 enum Method {
   get,
   post
@@ -62,12 +63,11 @@ class Net{
       print('''api: $url\nparams: $params\nresult: $result''');
       // 转化为model
       RootModel model = RootModel.fromJson(result);
-      if (model.errorCode == 0){ // 200 请求成功
+      if (model.errorCode == 0 || model.status == 100){ // 200 请求成功
         if (successCallBack != null){//返回请求数据
           successCallBack(model.data);
         }
       }else {
-        //TODO
         //直接使用Toast弹出错误信息
         //返回失败信息
         if (failureCallBack != null){
