@@ -25,7 +25,7 @@ class WanAndroidApi {
   /// 在某个公众号中搜索历史文章 http://wanandroid.com/wxarticle/list/405/1/json?k=Java
   static const String WXARTICLE_LIST = "wxarticle/list";
   static const String WXARTICLE_LIST_JSON = "wxarticle/list/408/1/json";
-  static const String MEIZIAPI = "https://gank.io/api/v2/data/category/Girl/type/Girl/page/1/count/50";
+  static const String MEIZIAPI = "https://gank.io/api/v2/data/category/Girl/type/Girl/page/1/count/100";
 
   static const String user_register = "user/register"; //注册
   static const String user_login = "user/login"; //登录

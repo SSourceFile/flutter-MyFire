@@ -1,17 +1,20 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutterapp/MainPage.dart';
 import 'package:flutterapp/Splash.dart';
 import 'package:flutterapp/blocs/bloc_index.dart';
 import 'package:flutterapp/common/Global.dart';
 import 'package:flutterapp/common/component_index.dart';
 import 'package:flutterapp/web/WebView.dart';
+//import 'package:flutter/rendering.dart';
 
 import 'common/CommonKey.dart';
 
 void main(){
   Global.init((){
+//    debugPaintSizeEnabled = true;
     runApp(
       //Flutter全灰
 //        ColorFiltered(colorFilter: ColorFilter.mode(Colors.white, BlendMode.color))

@@ -6,6 +6,7 @@ import 'package:flutterapp/Dialog.dart';
 import 'package:flutterapp/ListImage.dart';
 import 'package:flutterapp/record/Record.dart';
 import 'package:flutterapp/setting/Setting.dart';
+import 'package:flutterapp/test/Test1.dart';
 
 class MineItemWidget extends StatelessWidget{
   String imageName;
@@ -105,7 +106,7 @@ class Mine extends StatelessWidget{
                 Navigator.push(context, MaterialPageRoute(builder: (context) => Setting()));
               }),
               MineItemWidget("images/ic_mine_trade.png", "flutter动画", onTop: (){
-                Navigator.push(context, MaterialPageRoute(builder: (context) => Animater()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Test1()));
               },),
               MineItemWidget("images/ic_mine_trade.png", "flutter弹窗", onTop: (){
 //                Navigator.push(context, MaterialPageRoute(builder: (context) => Dialogs()));
