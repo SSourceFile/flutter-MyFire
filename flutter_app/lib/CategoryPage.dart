@@ -25,7 +25,7 @@ class CategoryPageState extends State with TickerProviderStateMixin{
   }
   final List<Tab> titleTab = [
     Tab(text: '热门推荐',),
-    Tab(text: '少妇推荐',),
+    Tab(text: '文章推荐',),
     Tab(text: '清纯少女',),
 
   ];

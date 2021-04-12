@@ -99,7 +99,7 @@ class Mine extends StatelessWidget{
               MineItemWidget("images/icservice.png", "联系客服", onTop: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context) => ListImage()));
               }),
-              MineItemWidget("images/ic_mine_trade.png", "约炮记录", onTop: (){
+              MineItemWidget("images/ic_mine_trade.png", "美女日记", onTop: (){
                 Navigator.push(context, MaterialPageRoute(builder: (context) => Record()));
               }),
               MineItemWidget("images/ic_mine_setting.png", "设置", onTop: (){
